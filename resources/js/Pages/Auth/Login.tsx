@@ -17,6 +17,7 @@ import {
 import AuthLayout from "@/layouts/auth-layout";
 import Webpass from "@laragear/webpass";
 import { toast } from "sonner";
+import { RiFileTextLine } from "react-icons/ri";
 
 type LoginForm = {
   email: string;

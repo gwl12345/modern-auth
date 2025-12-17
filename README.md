@@ -48,7 +48,7 @@ php artisan modern-auth:install
 Install the required NPM packages:
 
 ```bash
-npm install @laragear/webpass dayjs
+npm install @laragear/webpass dayjs @radix-ui/react-tabs react-icons
 npm install class-variance-authority clsx tailwind-merge lucide-react sonner --save
 ```
 
