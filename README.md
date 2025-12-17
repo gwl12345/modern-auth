@@ -32,7 +32,8 @@ Add the repository to your application's `composer.json`:
 Then run:
 
 ```bash
-composer require gwl12345/modern-auth
+
+
 ```
 
 ### 2. Install Resources

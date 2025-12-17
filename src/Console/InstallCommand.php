@@ -69,6 +69,24 @@ class InstallCommand extends Command
         // Copy Profile Pages
         (new Filesystem)->copyDirectory(__DIR__.'/../../resources/js/Pages/Profile', resource_path('js/Pages/Profile'));
 
+        // Publish components (e.g. LoginTabs)
+        $this->info('Publishing components...');
+        (new Filesystem)->ensureDirectoryExists(resource_path('js/components/ui'));
+        
+        // We need to copy specific components that we are providing
+        $components = [
+            'ui/login-tabs.tsx',
+        ];
+
+        foreach ($components as $component) {
+            if (file_exists(__DIR__.'/../../resources/js/Components/'.$component)) {
+                copy(
+                    __DIR__.'/../../resources/js/Components/'.$component,
+                    resource_path('js/components/'.$component) 
+                );
+            }
+        }
+
         // We might want to warn about overwriting?
         // For now, force overwrite is assumed or handled by copyDirectory logic (it overwrites).
 
