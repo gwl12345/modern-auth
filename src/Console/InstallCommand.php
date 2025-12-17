@@ -36,9 +36,26 @@ class InstallCommand extends Command
         // OR standard Laravel migrations are sufficient if extensions are handled.
         // User needs `laragear/webauthn` migrations. I can call their publish command.
         
+        // Publish Migrations
+        $this->info('Publishing migrations...');
+        
+        // We publish our custom migration for WebAuthn which includes the 'alias' column
+        // defined in database/migrations/create_webauthn_credentials_table.php of this package.
+        // We'll give it a timestamped name.
+        
+        $timestamp = date('Y_m_d_His');
+        $migrationName = "{$timestamp}_create_webauthn_credentials_table.php";
+        
+        copy(
+            __DIR__.'/../../database/migrations/create_webauthn_credentials_table.php',
+            database_path("migrations/{$migrationName}")
+        );
+        
+        // Also allow Laragear to publish its own config if needed, but we suppress its migration
+        // since we are providing it.
         $this->call('vendor:publish', [
             '--provider' => "Laragear\WebAuthn\WebAuthnServiceProvider",
-            '--tag' => "migrations"
+            '--tag' => "config"
         ]);
 
         // Publish Frontend Resources
