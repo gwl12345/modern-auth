@@ -1,6 +1,6 @@
 {
   "name": "gwl12345/modern-auth",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A modern authentication package for Laravel 12 + Inertia 2.3",
   "type": "library",
   "license": "MIT",
