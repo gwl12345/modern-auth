@@ -1,0 +1,15 @@
+/node_modules
+/vendor
+/public/build
+/public/hot
+/public/storage
+/.idea
+/.vscode
+.env
+.env.backup
+.env.production
+.DS_Store
+Thumbs.db
+composer.lock
+package-lock.json
+yarn.lock
